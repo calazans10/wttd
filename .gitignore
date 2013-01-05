@@ -1,3 +1,15 @@
+bin
+build
+include
+lib
+local
+man
+share
+Scripts
+.Python
+*~
+*.db
+.DS_Store
 env-wttd
 *.pyc
 database
