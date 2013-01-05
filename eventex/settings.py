@@ -1,4 +1,3 @@
-# Django settings for eventex project.
 from unipath import Path
 
 PROJECT_DIR = Path(__file__).parent
@@ -121,6 +120,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'core',
 )
 
 # A sample logging configuration. The only tangible logging
