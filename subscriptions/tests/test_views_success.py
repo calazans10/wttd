@@ -1,12 +1,14 @@
+# -*- coding: utf -*-
 from django.test import TestCase
 from subscriptions.models import Subscription
+from django.core.urlresolvers import reverse as r
 
 
 class SuccessTest(TestCase):
     def setUp(self):
         s = Subscription.objects.create(name='Jeferson Calazans', cpf='60546831524',
             email='calazans10@gmail.com', phone='21-86478151',)
-        self.resp = self.client.get('/inscricao/%d/' % s.pk)
+        self.resp = self.client.get(r('subscriptions:success', args=[s.pk]))
 
     def test_get(self):
         'GET /inscricao/1/ should return status 200'
@@ -28,5 +30,5 @@ class SuccessTest(TestCase):
 
 class SuccessNotFound(TestCase):
     def test_not_found(self):
-        self.resp = self.client.get('/inscricao/0/')
+        self.resp = self.client.get(r('subscriptions:success', args=[0]))
         self.assertEqual(404, self.resp.status_code)

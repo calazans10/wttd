@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
 
 # Uncomment the next two lines to enable the admin:
@@ -5,10 +6,8 @@ from django.conf.urls import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'core.views.homepage', name='homepage'),
-    url(r'^inscricao/$', 'subscriptions.views.subscribe', name='subscribe'),
-    url(r'^inscricao/(\d+)/$', 'subscriptions.views.success', name='success'),
-
+    url(r'^inscricao/', include('subscriptions.urls', namespace='subscriptions')),
+    url(r'', include('core.urls', namespace='core')),
 
     # Examples:
     # url(r'^$', 'eventex.views.home', name='home'),
