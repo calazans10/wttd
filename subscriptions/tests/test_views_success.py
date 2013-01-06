@@ -28,5 +28,5 @@ class SuccessTest(TestCase):
 
 class SuccessNotFound(TestCase):
     def test_not_found(self):
-        resp = self.client.get('/inscricao/0/')
-        self.assertEqual(404, resp.status_code)
+        self.resp = self.client.get('/inscricao/0/')
+        self.assertEqual(404, self.resp.status_code)
