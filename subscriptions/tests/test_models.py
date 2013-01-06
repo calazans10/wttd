@@ -40,4 +40,3 @@ class SubscriptionUniqueTest(TestCase):
         s = Subscription(name='Fulano de tal', cpf='60546831529',
             email='calazans10@gmail.com', phone='21-88657495',)
         self.assertRaises(IntegrityError, s.save)
-

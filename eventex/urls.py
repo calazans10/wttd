@@ -7,6 +7,8 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     url(r'^$', 'core.views.homepage', name='homepage'),
     url(r'^inscricao/$', 'subscriptions.views.subscribe', name='subscribe'),
+    url(r'^inscricao/(\d+)/$', 'subscriptions.views.success', name='success'),
+
 
     # Examples:
     # url(r'^$', 'eventex.views.home', name='home'),
