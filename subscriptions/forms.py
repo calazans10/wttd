@@ -7,6 +7,7 @@ from .models import Subscription
 class SubscriptionForm(forms.ModelForm):
     class Meta:
         model = Subscription
+        exclude = ('paid',)
     # name = forms.CharField(label=_('Name'))
     # cpf = forms.CharField(label=_('CPF'))
     # email = forms.EmailField(label=_('Email'))

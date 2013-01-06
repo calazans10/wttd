@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from unipath import Path
 import dj_database_url
 
@@ -82,11 +83,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'south',
     'core',
     'subscriptions',
+    # Uncomment the next line to enable admin documentation:
+    # 'django.contrib.admindocs',
 )
+
+SOUTH_TESTS_MIGRATE = False
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
