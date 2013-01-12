@@ -21,11 +21,10 @@ def new(request):
 
 def create(request):
     form = SubscriptionForm(request.POST)
-    if not form.is_valid():
-        return new(request)
-
-    obj = form.save()
-    return HttpResponseRedirect('/inscricao/%d/' % obj.pk)
+    if form.is_valid():
+        obj = form.save()
+        return HttpResponseRedirect('/inscricao/%d/' % obj.pk)
+    return new(request)
 
 
 def success(request, pk):

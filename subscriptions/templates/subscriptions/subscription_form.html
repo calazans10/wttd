@@ -3,22 +3,22 @@
     <form action="{% url subscriptions:subscribe %}" method="post">
         {% csrf_token %}
         <p>
-            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+            {{ form.name.label_tag }}
             {{ form.name }}
             {{ form.name.errors }}
         </p>
         <p>
-            <label for="{{ form.cpf.id_for_label }}">{{ form.cpf.label }}:</label>
+            {{ form.cpf.label_tag }}
             {{ form.cpf }}
             {{ form.cpf.errors }}
         </p>
         <p>
-            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+            {{ form.email.label_tag }}
             {{ form.email }}
             {{ form.email.errors }}
         </p>
         <p>
-            <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}:</label>
+            {{ form.phone.label_tag }}
             {{ form.phone }}
             {{ form.phone.errors }}
         </p>
