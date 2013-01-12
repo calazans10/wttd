@@ -6,4 +6,6 @@ argparse==1.2.1
 bpython==0.11
 distribute==0.6.28
 dj-database-url==0.2.1
+mock==1.0.1
+pyrg==0.2.6
 wsgiref==0.1.2

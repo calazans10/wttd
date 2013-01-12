@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
+    'mock',
     'core',
     'subscriptions',
     # Uncomment the next line to enable admin documentation:

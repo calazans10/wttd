@@ -14,4 +14,4 @@ env-wttd
 *.pyc
 database
 eventex/database.db
-
+*.ropeproject
