@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from core.managers import KindContactManager, PeriodManager
 
 
 class Speaker(models.Model):
@@ -9,8 +10,16 @@ class Speaker(models.Model):
     url = models.URLField(_('Url'))
     description = models.TextField(_('Descrição'), blank=True)
 
+    class Meta:
+        verbose_name = u'Palestrante'
+        verbose_name_plural = u'Palestrantes'
+
     def __unicode__(self):
         return self.name
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('core:speaker_detail', (), {'slug': self.slug})
 
 
 class Contact(models.Model):
@@ -23,3 +32,34 @@ class Contact(models.Model):
     speaker = models.ForeignKey('Speaker', verbose_name=_(u'Palestrante'))
     kind = models.CharField(_('Tipo'), max_length=1, choices=KINDS)
     value = models.CharField(_('Valor'), max_length=255)
+
+    objects = models.Manager()
+    emails = KindContactManager("E")
+    phones = KindContactManager("P")
+    faxes = KindContactManager("F")
+
+    class Meta:
+        verbose_name = u'Contato'
+        verbose_name_plural = u'Contatos'
+
+    def __unicode__(self):
+        return self.value
+
+
+class Talk(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    start_time = models.TimeField(blank=True)
+    speakers = models.ManyToManyField('Speaker', verbose_name=_(u'palestrante'))
+
+    objects = PeriodManager()
+
+    class Meta:
+        verbose_name = u'Palestra'
+        verbose_name_plural = u'Palestras'
+
+    def __unicode__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return '/palestras/%d/' % self.pk
